@@ -1,0 +1,56 @@
+ body{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
+      background:#e6f2ff;
+      font-family:sans-serif;
+    }
+
+    /* ---------- target base ---------- */
+    .target{
+      position:relative;
+      width:300px;     /* ⬅ overall diameter                       */
+      height:300px;
+    }
+
+    .circle{
+      position:absolute;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      border-radius:50%;
+      border:1.5px solid #000;   /* black outline for every ring */
+    }
+    .white  {width:300px; height:300px; background:#fff;}
+    .black  {width:240px; height:240px; background:#000;}
+    .blue   {width:180px; height:180px; background:#0074d9;}
+    .red    {width:120px; height:120px; background:#ff4136;}
+    .yellow {width: 60px; height: 60px; background:#ffdc00;}
+
+    /* ---------- plus reticle ---------- */
+    .reticle{
+      position:absolute;
+      left:50%; top:50%;
+      transform:translate(-50%,-50%);
+      width:25px; height:25px;          /* same size as yellow bullseye   */
+      pointer-events:none;              /* clicks pass through if needed  */
+    }
+    .reticle::before,                  /* vertical bar  */
+    .reticle::after{                   /* horizontal bar*/
+      content:"";
+      position:absolute;
+      background:#000;
+    }
+    .reticle::before{
+      width:1.5px;                       /* bar thickness  */
+      height:100%;
+      left:50%; top:0;
+      transform:translateX(-50%);
+    }
+    .reticle::after{
+      height:1.5px;
+      width:100%;
+      top:50%; left:0;
+      transform:translateY(-50%);
+    }
